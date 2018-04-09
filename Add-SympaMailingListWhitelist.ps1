@@ -1,9 +1,9 @@
-function Add-SympaMailingListWhitelist
+﻿function Add-SympaMailingListWhitelist
 {
 
 <#
 .Synopsis
-   This function adds a member(s) to a Mailing list whitelist
+   This function adds a member(s) to a Mailing list
 .EXAMPLE
    Add the member jim.bob@queens.ox.ac.uk to the mailing list whitelist queens-it
 
@@ -13,14 +13,14 @@ function Add-SympaMailingListWhitelist
    
    Add-SympaMailingListWhitelist -Sympa $Sympa -MailingList queens-it -Member @('jim.bob@queens.ox.ac.uk','jim.kirk@queens.ox.ac.uk')
 .EXAMPLE
-    Get the whitelist members from the list queens-test and add them to queens-it
+    Get the members from the list whitelist queens-test and add them to queens-it
 
-    Get-SympaMailingListWhitelist -Sympa $Sympa -MailingList queens-test | Add-SympaMailingListWhitelist -Sympa $Sympa -MailingList queens-it
+    Get-SympaMailingListWhitelist -Sympa $Sympa -MailingList queens-test | Add-SympaMailingListWhitelist -Sympa $sympa -MailingList queens-it
 #>
 
 param(
-    
-    [Parameter(Mandatory=$true,HelpMessage="Pass in the result of the 'Get-SympaLogin' function")]
+
+    [Parameter(Mandatory=$true,HelpMessage="Pass in the result of the 'Get-SympaLogin' function")]
     $Sympa,
 
     [Parameter(Mandatory=$true,HelpMessage="Enter the name of the Mailing list you want to add the whitelist member(s) to")]
@@ -36,8 +36,8 @@ param(
         foreach($Address in $Member){
             try
             {
-                Write-Verbose "Adding $Address to $MailingList whitelist"
-                $Sympa.addWhitelist("$MailingList","$Address")   
+                Write-Verbose "Adding $Address to $MailingList"
+                $Sympa.addWhitelist("$MailingList","$Address", "","1")   
             }
             catch
             {
