@@ -11,11 +11,11 @@
 .EXAMPLE
    To login using the WSDL https://web.maillist.ox.ac.uk/ox/wsdl with the username test-user@ox.ac.uk and password cheesypassword1 use the following.
 
-   $sympa = Get-SympaLogin -Username test-user@ox.ac.uk -Password $("cheesypassword1" | ConvertTo-SecureString -AsPlainText -Force) -WSDL https://web.maillist.ox.ac.uk/ox/wsdl
+   $Sympa = Get-SympaLogin -Username test-user@ox.ac.uk -Password $("cheesypassword1" | ConvertTo-SecureString -AsPlainText -Force) -WSDL https://web.maillist.ox.ac.uk/ox/wsdl
 .EXAMPLE
     To login using a CSV which stores the Username/Password/URI to WSDL use the following.
 
-    $sympa = Get-SympaLogin -CredsPath "C:\Sympa\credsfile.csv"
+    $Sympa = Get-SympaLogin -CredsPath "C:\Sympa\credsfile.csv"
 #>
 
 param(

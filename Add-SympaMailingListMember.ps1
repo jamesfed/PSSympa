@@ -15,7 +15,7 @@
 .EXAMPLE
     Get the members from the list queens-test and add them to queens-it
 
-    Get-SympaMailingListMember -Sympa $sympa -MailingList queens-test | Add-SympaMailingListMember -Sympa $sympa -MailingList queens-it
+    Get-SympaMailingListMember -Sympa $Sympa -MailingList queens-test | Add-SympaMailingListMember -Sympa $sympa -MailingList queens-it
 #>
 
 param(
