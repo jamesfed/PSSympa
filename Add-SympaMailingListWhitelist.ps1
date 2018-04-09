@@ -37,7 +37,7 @@ param(
             try
             {
                 Write-Verbose "Adding $Address to $MailingList"
-                $Sympa.addWhitelist("$MailingList","$Address", "","1")   
+                $Sympa.addWhitelist("$MailingList","$Address")   
             }
             catch
             {
