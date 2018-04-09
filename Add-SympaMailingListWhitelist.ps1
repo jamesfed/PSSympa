@@ -19,8 +19,8 @@ function Add-SympaMailingListWhitelist
 #>
 
 param(
-
-    [Parameter(Mandatory=$true,HelpMessage="Pass in the result of the 'Get-SympaLogin' function")]
+    
+    [Parameter(Mandatory=$true,HelpMessage="Pass in the result of the 'Get-SympaLogin' function")]
     $Sympa,
 
     [Parameter(Mandatory=$true,HelpMessage="Enter the name of the Mailing list you want to add the whitelist member(s) to")]
@@ -28,23 +28,9 @@ param(
 
     [Parameter(Mandatory=$true,HelpMessage="Enter the address of the member(s) you want to add to the Mailling list whitelist",ValueFromPipelineByPropertyName=$True)]
     [Array]$Member
-<#
-    [Parameter(Mandatory=$false,HelpMessage="Should you notify the user that they are being added to the list, default is no")]
-    [ValidateSet("Yes", "No")]
-    [String]$Notify = "No"
-#>
+
     )
     
-<#
-    #Handle the $Notify paramater converting it into the mess that Sympa understands
-    switch ($Notify)
-    {
-        'Yes' {$Alert = "false"}
-        'No' {$Alert = "true"}
-        Default {$Alert = "true"}
-    }
-#>
-
     Process{
         #Loop over the member(s) and add them to the list
         foreach($Address in $Member){
